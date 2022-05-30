@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.NextStepActivity">
+
+    <TextView
+        android:id="@+id/title_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/let_s_take_a_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="151dp"
+        android:textSize="24sp"
+        android:textColor="@color/blue_prime"/>
+
+    <TextView
+        android:id="@+id/desc_signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or_select_from_your_gallery"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/title_signIn"
+        app:layout_constraintStart_toStartOf="@+id/title_signIn"
+        app:layout_constraintTop_toBottomOf="@+id/title_signIn" />
+
+    <ImageView
+        android:id="@+id/img_result"
+        android:layout_width="316.67dp"
+        android:layout_height="200.00dp"
+        android:layout_marginTop="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/no_image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/background_btn_outline"
+        android:drawableStart="@drawable/camera"
+        android:paddingLeft="125dp"
+        android:paddingRight="125dp"
+        android:text="@string/scan_your_id"
+        android:textAllCaps="false"
+        android:textColor="@color/blue_prime"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/img_result"
+        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintStart_toStartOf="@+id/img_result"
+        app:layout_constraintTop_toBottomOf="@+id/img_result" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/background_btn"
+        android:drawableStart="@drawable/ic_gallery"
+        android:paddingLeft="110dp"
+        android:paddingRight="110dp"
+        android:text="@string/select_from_gallery"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_camera"
+        app:layout_constraintStart_toStartOf="@+id/btn_camera"
+        app:layout_constraintTop_toBottomOf="@+id/btn_camera" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
