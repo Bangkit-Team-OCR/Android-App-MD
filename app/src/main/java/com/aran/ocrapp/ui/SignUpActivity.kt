@@ -15,7 +15,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            startActivity(Intent(this, NextStepActivity::class.java))
+            startActivity(Intent(this, SecondStepActivity::class.java))
         }
     }
 }
