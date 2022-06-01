@@ -210,7 +210,7 @@ class SecondStepActivity : AppCompatActivity() {
         val options:UCrop.Options=UCrop.Options()
         UCrop.of(Uri.parse(uri.toString()), Uri.fromFile(File(cacheDir,destination)))
             .withOptions(options)
-            .withAspectRatio(0F, 0F)
+            .withAspectRatio(3F, 2F)
             .useSourceImageAspectRatio()
             .withMaxResultSize(600, 950)
             .start(this)
