@@ -30,7 +30,7 @@ interface ApiService {
     ) : Call<PostResponse>
 
     @FormUrlEncoded
-    @Headers("token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxIHllYXJzIiwiYXVkaWVuY2UiOiJ1c2VyIiwiaXNzdWVyIjoiYmFja2VuZCIsImRhdGEiOnsiaWQiOjMsImVtYWlsIjoibm9uZUBnbWFpbC5jb20iLCJwcm9maWxlSWQiOm51bGx9LCJpYXQiOjE2NTUzMDExMDJ9.o9x68dZt9Agwig-cXPingnXSucEYQgb9o_mysqh041M")
+    @Headers("token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxIHllYXJzIiwiYXVkaWVuY2UiOiJtb2JpbGUiLCJpc3N1ZXIiOiJiYWNrZW5kIiwiaWF0IjoxNjU1Mjk4ODQ1fQ._r5DlZobWk8pht9veDpWW_eyHcz7xQk1aZ4y1AjXfaU")
     @GET("user")
     fun getData(
         @Field("email") email: String
@@ -40,7 +40,6 @@ interface ApiService {
     @Headers("token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxIHllYXJzIiwiYXVkaWVuY2UiOiJtb2JpbGUiLCJpc3N1ZXIiOiJiYWNrZW5kIiwiaWF0IjoxNjU1Mjk4ODQ1fQ._r5DlZobWk8pht9veDpWW_eyHcz7xQk1aZ4y1AjXfaU")
     @POST("register-profile")
     fun postAllData(
-        @ParameterName("email", String)
         @Field("nik") nik: String,
         @Field("nama") nama: String,
         @Field("alamat") alamat: String,
