@@ -4,17 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/title_signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_capstone"
+        android:text="Welcome"
         android:textColor="@color/blue_prime"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="@color/blue_prime"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,10 +42,17 @@
         android:layout_height="wrap_content"
         android:text="@string/you_just_signed_in"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        android:layout_marginTop="17dp"
-        app:layout_constraintEnd_toEndOf="@+id/title_signIn"
+        android:textSize="15sp"
+        android:layout_marginTop="7dp"
         app:layout_constraintStart_toStartOf="@+id/title_signIn"
         app:layout_constraintTop_toBottomOf="@+id/title_signIn" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        tools:listitem="@layout/hotel_item"
+        app:layout_constraintTop_toBottomOf="@+id/desc_signUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

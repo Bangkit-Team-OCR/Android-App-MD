@@ -3,35 +3,54 @@
     package="com.aran.ocrapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.harware.camera2" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OCRApp">
+
+        <meta-data
+            android:name="com.sembarang"
+            android:value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzSW4iOiIxIHllYXJzIiwiYXVkaWVuY2UiOiJtb2JpbGUiLCJpc3N1ZXIiOiJiYWNrZW5kIiwiaWF0IjoxNjU1Mjk4ODQ1fQ._r5DlZobWk8pht9veDpWW_eyHcz7xQk1aZ4y1AjXfaU" />
+
         <activity
-            android:name=".ui.CameraActivity"
+            android:name=".view.DetailDataActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NextStepActivity"
+            android:name=".view.EncodeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SecondStepActivity"
+            android:name=".view.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignUpActivity"
+            android:name=".view.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".view.CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignInActivity"
+            android:name=".view.NextStepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SecondStepActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,26 +58,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider
-            android:authorities="${applicationId}.provider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
-
-
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileproviderpaths">
-
-            </meta-data>
-
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileproviderpaths" />
         </provider>
-
     </application>
 
 </manifest>

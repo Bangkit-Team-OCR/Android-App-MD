@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailActivity">
+
+    <ImageView
+        android:id="@+id/detail_photo"
+        android:layout_width="410dp"
+        android:layout_height="230dp"
+        android:src="@drawable/hotel3"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:layout_marginStart="20dp"
+        app:cardCornerRadius="7dp"
+        android:alpha="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:layout_marginTop="9dp"
+            android:layout_marginStart="9dp"
+            android:src="@drawable/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0.85"
+        android:backgroundTint="@color/grey"
+        android:padding="9dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_photo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="P R I C E"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 350.000"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/hotel_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="Omash Manis"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/hotel_name"
+        app:layout_constraintTop_toBottomOf="@+id/hotel_name"
+        android:text="Makassar, Kec. Tamalanrea Jl. Perintis" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="27dp"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_room"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:text="A hotel with a comfortable residence located very strategically at the downstream of the hill makes the atmosphere around it cooler and friendlier" />
+
+    <ImageView
+        android:id="@+id/img_room"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_room"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/location"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <TextView
+        android:id="@+id/room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/img_room"
+        app:layout_constraintStart_toEndOf="@+id/img_room"
+        app:layout_constraintTop_toTopOf="@+id/img_room"
+        android:layout_marginStart="6dp"
+        android:text="3" />
+
+    <ImageView
+        android:id="@+id/img_bath"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_bedroom"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/room"
+        app:layout_constraintStart_toEndOf="@+id/room"
+        app:layout_constraintTop_toTopOf="@+id/room" />
+
+    <TextView
+        android:id="@+id/bath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/img_bath"
+        app:layout_constraintStart_toEndOf="@+id/img_bath"
+        app:layout_constraintTop_toTopOf="@+id/img_bath"
+        android:layout_marginStart="6dp"
+        android:text="1" />
+
+    <ImageView
+        android:id="@+id/img_rating"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_star"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bath"
+        app:layout_constraintStart_toEndOf="@+id/bath"
+        app:layout_constraintTop_toTopOf="@+id/bath" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/img_rating"
+        app:layout_constraintStart_toEndOf="@+id/img_rating"
+        app:layout_constraintTop_toTopOf="@+id/img_rating"
+        android:layout_marginStart="6dp"
+        android:text="27.3k" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Message Host" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                android:text="To get detail of property" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_book"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Book"
+                android:background="@drawable/background_book"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

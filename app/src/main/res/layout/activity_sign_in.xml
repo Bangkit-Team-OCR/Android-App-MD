@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignInActivity">
+    tools:context=".view.SignInActivity">
 
     <TextView
         android:id="@+id/title_signIn"
@@ -106,5 +106,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/dessscc"
         app:layout_constraintStart_toEndOf="@+id/dessscc"
         app:layout_constraintTop_toTopOf="@+id/dessscc" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
