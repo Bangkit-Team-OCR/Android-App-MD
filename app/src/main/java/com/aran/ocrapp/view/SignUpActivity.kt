@@ -11,6 +11,7 @@ import com.aran.ocrapp.R
 import com.aran.ocrapp.api.ApiConfig
 import com.aran.ocrapp.databinding.ActivitySignUpBinding
 import com.aran.ocrapp.helper.Responses
+import com.aran.ocrapp.helper.SignUpResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,10 +40,10 @@ class SignUpActivity : AppCompatActivity() {
         showLoading(true)
 
         val client = ApiConfig.getApiService().createAccount(email, password)
-        client.enqueue(object: Callback<Responses> {
+        client.enqueue(object: Callback<SignUpResponse> {
             override fun onResponse(
-                call: Call<Responses>,
-                response: Response<Responses>
+                call: Call<SignUpResponse>,
+                response: Response<SignUpResponse>
             ) {
                 showLoading(false)
                 val responseBody = response.body()
@@ -50,6 +51,7 @@ class SignUpActivity : AppCompatActivity() {
                 if(response.isSuccessful && responseBody?.message == "insert new user success") {
                     Toast.makeText(this@SignUpActivity, getString(R.string.register_success), Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@SignUpActivity, SecondStepActivity::class.java)
+                    intent.putExtra("email", responseBody.data.email)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this@SignUpActivity, SecondStepActivity::class.java)
@@ -58,7 +60,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<Responses>, t: Throwable) {
+            override fun onFailure(call: Call<SignUpResponse>, t: Throwable) {
                 showLoading(false)
                 Log.e(TAG, "onFailure2: ${t.message}")
                 Toast.makeText(this@SignUpActivity, getString(R.string.login_fail), Toast.LENGTH_SHORT).show()

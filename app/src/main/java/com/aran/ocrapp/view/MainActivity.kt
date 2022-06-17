@@ -1,18 +1,24 @@
 package com.aran.ocrapp.view
 
+import android.content.ContentValues
 import android.content.Intent
-import android.icu.number.NumberRangeFormatter.with
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.controls.ControlsProviderService
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import com.aran.ocrapp.R
+import com.aran.ocrapp.api.ApiConfig
 import com.aran.ocrapp.databinding.ActivityMainBinding
+import com.aran.ocrapp.helper.PostResponse
+import com.aran.ocrapp.helper.Responses
+import com.aran.ocrapp.helper.getAllDataResponse
 import com.aran.ocrapp.model.HotelModel
 import com.aran.ocrapp.viewmodel.HotelAdapter
-import com.bumptech.glide.GenericTransitionOptions.with
-import com.bumptech.glide.Glide.with
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions.with
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.with
-import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,20 +30,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val img = intArrayOf(
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-bintan.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/2.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-padmabandung.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-transhotel.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/5.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-rancamaya.jpeg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/7.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-pesonaalam.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-ritzcarlton.jpg",
-//            "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/14.jpg"
+        val email = intent.getStringExtra("email")
+        binding.emailku.text = email
 
-            R.drawable.hotel1, R.drawable.hotel2, R.drawable.hotel3, R.drawable.hotel4, R.drawable.hotel5,
-            R.drawable.hotel6, R.drawable.hotel7, R.drawable.hotel8, R.drawable.hotel9, R.drawable.hotel10
+        binding.profile.setOnClickListener {
+            val emaill = binding.emailku.text.toString()
+            getAllEditedData(emaill)
+        }
+
+        val img = intArrayOf(
+
+            R.drawable.h1, R.drawable.h3, R.drawable.h4, R.drawable.h5, R.drawable.h6,
+            R.drawable.h7, R.drawable.h8, R.drawable.h9, R.drawable.h10, R.drawable.h2
         )
 
         val hotelName = arrayOf(
@@ -123,6 +127,62 @@ class MainActivity : AppCompatActivity() {
             i.putExtra("bath", bath)
             startActivity(i)
 
+        }
+    }
+
+    private fun getAllEditedData(email: String) {
+        val client = ApiConfig.getApiService().getData(email)
+        client.enqueue(object: Callback<getAllDataResponse> {
+            override fun onResponse(
+                call: Call<getAllDataResponse>,
+                response: Response<getAllDataResponse>
+            ) {
+                showLoading(false)
+                val responseBody = response.body()
+
+                Log.d(ControlsProviderService.TAG, "onResponse: $responseBody")
+
+                if(response.isSuccessful && responseBody?.message == "getting user's profile successfully") {
+                    Toast.makeText(this@MainActivity, getString(R.string.getting_success), Toast.LENGTH_SHORT).show()
+
+                    val nik = responseBody.data.nik
+                    val nama = responseBody.data.nama
+                    val alamat = responseBody.data.alamat
+                    val provinsi = responseBody.data.provinsi
+                    val kabupaten = responseBody.data.kabupaten
+                    val ttl = responseBody.data.ttl
+
+                    val emailll = binding.emailku.text.toString()
+
+                    val i = Intent(this@MainActivity, ProfileActivity::class.java)
+                    i.putExtra("nik", nik)
+                    i.putExtra("nama", nama)
+                    i.putExtra("alamat", alamat)
+                    i.putExtra("provinsi", provinsi)
+                    i.putExtra("kabupaten", kabupaten)
+                    i.putExtra("ttl", ttl)
+                    i.putExtra("email", emailll)
+
+                    startActivity(i)
+                } else {
+                    Log.e(ContentValues.TAG, "onFailure1: ${response.message()}")
+                    Toast.makeText(this@MainActivity, getString(R.string.getting_fail), Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<getAllDataResponse>, t: Throwable) {
+                showLoading(false)
+                Log.e(ControlsProviderService.TAG, "onFailure2: ${t.message}")
+                Toast.makeText(this@MainActivity, getString(R.string.getting_fail), Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
         }
     }
 }

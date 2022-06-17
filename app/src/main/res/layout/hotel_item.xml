@@ -17,37 +17,25 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img"
-            android:layout_width="95dp"
-            android:layout_height="95dp"
-            android:src="@drawable/hotel1"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/tv_item_project_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="H O T E L"
             android:textSize="16sp"
-            android:layout_marginStart="15dp"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/img"
-            card_view:layout_constraintTop_toTopOf="parent"
-            android:text="H O T E L" />
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/hotel_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            card_view:layout_constraintEnd_toEndOf="@+id/tv_item_project_name"
+            android:text="Omash Manis"
             card_view:layout_constraintStart_toStartOf="@+id/tv_item_project_name"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_project_name"
-            card_view:layout_constraintVertical_bias="0.0"
-            android:text="Omash Manis" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_item_project_name" />
 
         <ImageView
             android:id="@+id/lang_ic"

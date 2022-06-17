@@ -16,7 +16,7 @@ class HotelAdapter (private val context : Activity, private val arrayList: Array
         val inflater : LayoutInflater = LayoutInflater.from(context)
         val view : View = inflater.inflate(R.layout.hotel_item, null)
 
-        val img  : CircleImageView = view.findViewById(R.id.img)
+//        val img  : CircleImageView = view.findViewById(R.id.img)
         val hotelName : TextView = view.findViewById(R.id.hotel_name)
         val location : TextView = view.findViewById(R.id.location)
         val price : TextView = view.findViewById(R.id.price)

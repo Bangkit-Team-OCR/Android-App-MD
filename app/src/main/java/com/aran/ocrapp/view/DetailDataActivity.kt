@@ -40,6 +40,8 @@ class DetailDataActivity : AppCompatActivity() {
         val ttl = intent.getStringExtra("ttl")
         val kewarganegaraan = intent.getStringExtra("kewarganegaraan")
 
+        val email = intent.getStringExtra("email")
+
         binding.nik.setText(nik)
         binding.nama.setText(nama)
         binding.alamat.setText(alamat)
@@ -54,6 +56,8 @@ class DetailDataActivity : AppCompatActivity() {
         binding.ttl.setText(ttl)
         binding.kewarganegaraan.setText(kewarganegaraan)
 
+        binding.getEmail.text = email
+
         binding.btnConfirm.setOnClickListener {
 
             val nikk = binding.nik.text.toString()
@@ -62,16 +66,18 @@ class DetailDataActivity : AppCompatActivity() {
             val provinsii = binding.provinsi.text.toString()
             val kabupatenn = binding.kabupaten.text.toString()
 
-            uploadPhotoToServer(nikk, namaa, alamatt, provinsii, kabupatenn)
+            val postEmail = binding.getEmail.text.toString()
+
+            uploadPhotoToServer(nikk, namaa, postEmail, alamatt, provinsii, kabupatenn)
         }
     }
 
-    private fun uploadPhotoToServer(nik: String, nama: String, alamat: String, provinsi: String, kabupaten: String) {
+    private fun uploadPhotoToServer(nik: String, nama: String, email: String, alamat: String, provinsi: String, kabupaten: String) {
 
         showLoading(true)
         Toast.makeText(this@DetailDataActivity, "Getting Your Data", Toast.LENGTH_SHORT).show()
 
-        val client = ApiConfig.getApiService().postAllData(nik, nama, alamat, provinsi, kabupaten)
+        val client = ApiConfig.getApiService().postAllData(nik, nama, email, alamat, provinsi, kabupaten)
         client.enqueue(object: Callback<Responses> {
             override fun onResponse(
                 call: Call<Responses>,

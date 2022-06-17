@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aran.ocrapp.R
 import com.aran.ocrapp.databinding.ActivityDetailBinding
-import com.bumptech.glide.Glide
-import com.squareup.picasso.Picasso
 
 class DetailActivity : AppCompatActivity() {
 
@@ -21,7 +19,7 @@ class DetailActivity : AppCompatActivity() {
 //        Picasso.get().load(imgUri).fit().into(binding.detailPhoto)
 
 
-        val img = intent.getIntExtra("img", R.drawable.hotel1)
+        val img = intent.getIntExtra("img", R.drawable.h1)
         val hotelName = intent.getStringExtra("hotelName")
         val location = intent.getStringExtra("location")
         val price = intent.getStringExtra("price")

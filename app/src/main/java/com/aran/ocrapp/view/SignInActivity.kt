@@ -44,8 +44,6 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setupViewModel()
-
         binding.btnSignIn.setOnClickListener{
 
             val email = binding.email.text.toString()
@@ -59,20 +57,6 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-//    private fun setupViewModel() {
-//        mainViewModel = ViewModelProvider(
-//            this,
-//            ViewModelFactory(UserPreference.getInstance(dataStore))
-//        )[SharedViewModel::class.java]
-//
-//        mainViewModel.getUser().observe(this) { user ->
-//            if(user.isLogin) {
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finish()
-//            }
-//        }
-//    }
-
     private fun signIn(email: String, password: String) {
         showLoading(true)
 
@@ -84,13 +68,17 @@ class SignInActivity : AppCompatActivity() {
                 Log.d(TAG, "onResponse: $responseBody")
 
                 if (response.isSuccessful && responseBody?.status == "success") {
-//                    mainViewModel.saveUser(UserModel(responseBody.loginResult.token, true))
                     Toast.makeText(this@SignInActivity, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+
+                    val emaill = binding.email.text.toString()
+
+                    val i = Intent(this@SignInActivity, MainActivity::class.java)
+                    i.putExtra("email", emaill)
+                    startActivity(i)
+
                 } else {
                     Log.e(TAG, "onFailure1: ${response.message()}")
                     Toast.makeText(this@SignInActivity, getString(R.string.login_fail), Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                 }
             }
 

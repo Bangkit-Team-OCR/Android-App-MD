@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProfileActivity">
+
+    <TextView
+        android:id="@+id/nik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7273052708000002"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="25dp"
+        android:text="Nama"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nik" />
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aran"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nama"
+        app:layout_constraintStart_toEndOf="@+id/txt_nama"
+        app:layout_constraintTop_toTopOf="@+id/txt_nama" />
+
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/uuu"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nama" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="aa@gmail.com"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/nama"
+        app:layout_constraintTop_toBottomOf="@+id/nama" />
+
+    <TextView
+        android:id="@+id/txt_alamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/Alamat"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_kabupaten" />
+
+    <TextView
+        android:id="@+id/txt_ttl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TTL"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/txt_alamat"
+        app:layout_constraintTop_toBottomOf="@+id/txt_alamat" />
+
+    <TextView
+        android:id="@+id/kabupaten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sinjai Timur"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/alamat"
+        app:layout_constraintTop_toBottomOf="@+id/alamat" />
+
+    <TextView
+        android:id="@+id/alamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sinjai"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/provinsi"
+        app:layout_constraintTop_toBottomOf="@+id/provinsi" />
+
+    <TextView
+        android:id="@+id/txt_kabupaten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Kabupaten"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_provinsi" />
+
+    <TextView
+        android:id="@+id/ttl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sinjai 27-08-00"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/kabupaten"
+        app:layout_constraintTop_toBottomOf="@+id/kabupaten" />
+
+    <TextView
+        android:id="@+id/txt_provinsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="Provinsi"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+
+    <TextView
+        android:id="@+id/provinsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sul-Sel"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

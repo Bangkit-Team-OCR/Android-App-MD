@@ -65,6 +65,9 @@ class SecondStepActivity : AppCompatActivity() {
         checkPermission()
         requestPermission()
 
+        val email = intent.getStringExtra("email")
+        binding.email.text = email
+
         binding.btnGallery.setOnClickListener {
             if (checkPermission()) {
                 pickFromGallery()
@@ -198,6 +201,8 @@ class SecondStepActivity : AppCompatActivity() {
                     val ttl = responseBody.data.ttl
                     val kewarganegaraan = responseBody.data.kewarganegaraan
 
+                    val nxt_email = binding.email.text.toString()
+
                     val i = Intent(this@SecondStepActivity, DetailDataActivity::class.java)
                     i.putExtra("nik", nik)
                     i.putExtra("nama", nama)
@@ -213,11 +218,13 @@ class SecondStepActivity : AppCompatActivity() {
                     i.putExtra("ttl", ttl)
                     i.putExtra("kewarganegaraan", kewarganegaraan)
 
+                    i.putExtra("email", nxt_email)
+
                     startActivity(i)
 
                 } else {
                     Log.e(ContentValues.TAG, "onFailure1: ${response.message()}")
-                    Toast.makeText(this@SecondStepActivity, getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SecondStepActivity, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show()
                 }
             }
 
